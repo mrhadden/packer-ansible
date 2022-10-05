@@ -7,7 +7,7 @@ ENV PACKER_SHA256SUM=9429c3a6f80b406dbddb9b30a4e468aeac59ab6ae4d09618c8d70c4f418
 RUN apk add --update git bash wget openssl
 RUN apk --update --no-cache add libc6-compat git curl openssh-client py-pip python3 && pip install awscli
 #RUN apk --update add coreutils && rm -rf /var/cache/apk/*
-RUN apk --update add coreutils
+#RUN apk --update add coreutils
 
 ADD https://releases.hashicorp.com/packer/${PACKER_VERSION}/packer_${PACKER_VERSION}_linux_amd64.zip ./
 ADD https://releases.hashicorp.com/packer/${PACKER_VERSION}/packer_${PACKER_VERSION}_SHA256SUMS ./
@@ -18,6 +18,8 @@ RUN unzip packer_${PACKER_VERSION}_linux_amd64.zip -d /bin
 RUN rm -f packer_${PACKER_VERSION}_linux_amd64.zip
 
 RUN apk add --update --no-cache bash openssh sshpass
+
+RUN apk add --update --no-cache coreutils
 
 RUN apk update && \
 apk add --no-cache ansible && \
