@@ -1,8 +1,12 @@
 FROM docker.mirror.hashicorp.services/alpine:latest
 LABEL maintainer="The Packer Team <packer@hashicorp.com>"
 
-ENV PACKER_VERSION=1.7.10
-ENV PACKER_SHA256SUM=1c8c176dd30f3b9ec3b418f8cb37822261ccebdaf0b01d9b8abf60213d1205cb
+#ENV PACKER_VERSION=1.7.10
+#ENV PACKER_SHA256SUM=1c8c176dd30f3b9ec3b418f8cb37822261ccebdaf0b01d9b8abf60213d1205cb
+ENV PACKER_VERSION=1.8.3
+ENV PACKER_SHA256SUM=0587f7815ed79589cd9c2b754c82115731c8d0b8fd3b746fe40055d969facba5
+
+
 
 RUN apk add --update git bash wget openssl
 RUN apk --update --no-cache add libc6-compat git curl openssh-client py-pip python3 && pip install awscli
